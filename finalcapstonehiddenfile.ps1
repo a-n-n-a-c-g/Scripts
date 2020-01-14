@@ -1,3 +1,8 @@
+# This detects hidden files in the tmp folder.
+# A quieter way of accomplishing this exploit is to set the file with both the hidden and system attributes.
+# attrib +s +h "<filepath>" ....... sets a file as a system file
+# attrib -s -h "<filepath>" ....... sets a file back to a normal file
+
 $mypath = "C:\Users\Adminsitrator\tmp"
 Set-Location -Path $mypath
 $newscan = Get-ChildItem -Attributes Hidden -R -Path $mypath #new scan results into var
