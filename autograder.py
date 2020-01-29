@@ -5,18 +5,23 @@ class colored:
     WARNING = '\033[91m'    
     ENDC = '\033[0m'
 
-newfile = open("../assignment.txt","r")
+word = ["security awareness","security training", "security education"]
+word1 = ["lattice-based","permissions","rights","privileges","implicit deny", "access control matrix", "capability tables","content-dependent", "context-dependent","need to know","discretionary access control", "role based", "rule-based","attribute based","mandatory access", "nondiscretionary access","hierarchial environment", "compartmentalized environment","hybrid environment"]
+word2 = ["economy of mechanism", "open design", "fail safe defaults", "reluctance to trust", "trusted system", "assurance"]
 
-def theentiredamnthing(newfile):
-    word = ["security awareness","security training", "security educatin"]
-    word1 = ["lattice-based","permissions","rights","privileges","implicit deny", "access control matrix", "capability tables","content-dependent", "context-dependent","need to know","discretionary access control", "role based", "rule-based","attribute based","mandatory access", "nondiscretionary access","hierarchial environment", "compartmentalized environment","hybrid environment"]
-    word2 = ["economy of mechanism", "open design", "fail safe defaults", "reluctance to trust", "trusted system", "assurance"]
+#def theentiredamnthing(newfile):
+def theentiredamnthing():
+    newfile = open("../assignment.txt", "r")
+    #print newfile
     listofwordlists = [word,word1,word2]
     wordlisttitles = ["Employee Training","Access Control","Design Principles"]
     counterOfWords = 0
     CounterofZeroes = 0
+    if os.path.exists("../grade.txt"):
+        os.remove("../grade.txt")
     for line in newfile:
         line = line.lower()
+        #print line
         listnumber = 0
         for listnumber in range(len(listofwordlists)):
             i = 0
@@ -53,7 +58,9 @@ def theentiredamnthing(newfile):
     os.system("cat ../grade.txt | clip.exe")
 
 def main():
-    theentiredamnthing(open("../assignment.txt","r"))
+    #theentiredamnthing(open("../assignment.txt","r"))
+    newfile = open("../assignment.txt", "r")
+    theentiredamnthing()
     newfile.close()
 
 if __name__ == "__main__":

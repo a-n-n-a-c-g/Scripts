@@ -21,17 +21,23 @@ def printtext(file):
         text = extract_text(file)
     else:
         text = "I don't know this file type"
-    text = re.sub('[^A-Za-z0-9]+', '', text)
+    text = re.sub('[^A-Za-z0-9\s]+', '', text)
+    assignmentfile = open("../assignment.txt","w")
+    assignmentfile.write(text)
+    #print text
     return text
     sleep(1000) 
 
 def recurseit():
     directory = "../Essays"
     for filename in os.listdir(directory):
-        print ("\n\n" + colored.WARNING + (filename) + colored.ENDC)
+        print (colored.WARNING + (filename) + colored.ENDC)
         if filename.endswith(".pdf") or filename.endswith(".docx"):
-            theentiredamnthing(printtext(os.path.join(directory,filename)))
-            raw_input("Copied to Clipboard. Press return to continue.")
+            #printtext(os.path.join(directory,filename))
+            #theentiredamnthing(printtext(os.path.join(directory,filename)))
+            printtext(os.path.join(directory,filename))
+            theentiredamnthing()
+            raw_input("Copied to Clipboard. Press return to continue. \n\n")
         else:
             continue
 
