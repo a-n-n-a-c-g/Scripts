@@ -19,6 +19,8 @@ def printtext(file):
         doc.process()  # process file
     elif (file_extension == ".pdf"):
         text = extract_text(file)
+    elif (file_extension == ".txt"):
+        text = open(file, "r").read()
     else:
         text = "I don't know this file type"
     text = re.sub('[^A-Za-z0-9\s]+', '', text)
@@ -26,20 +28,20 @@ def printtext(file):
     assignmentfile.write(text)
     #print text
     return text
-    sleep(1000) 
+    #sleep(1000) 
 
 def recurseit():
     directory = "../Essays"
     for filename in os.listdir(directory):
         print (colored.WARNING + (filename) + colored.ENDC)
-        if filename.endswith(".pdf") or filename.endswith(".docx"):
+        #if filename.endswith(".pdf") or filename.endswith(".docx"):
             #printtext(os.path.join(directory,filename))
-            #theentiredamnthing(printtext(os.path.join(directory,filename)))
-            printtext(os.path.join(directory,filename))
-            theentiredamnthing()
-            raw_input("Copied to Clipboard. Press return to continue. \n\n")
-        else:
-            continue
+        theentiredamnthing(printtext(os.path.join(directory,filename)))
+            #printtext(os.path.join(directory,filename))
+            #theentiredamnthing()
+        raw_input("Copied to Clipboard. Press return to continue. \n\n")
+        #else:
+            #continue
 
 def main():
     recurseit()
