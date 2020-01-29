@@ -8,12 +8,11 @@ class colored:
 newfile = open("../assignment.txt","r")
 
 def theentiredamnthing(newfile):
-    word = ["test", "testhi"]
-    word1 = ["this is a test", "suppp"]
-    word2 = ["what's up test"]
+    word = ["security awareness","security training", "security educatin"]
+    word1 = ["lattice-based","permissions","rights","privileges","implicit deny", "access control matrix", "capability tables","content-dependent", "context-dependent","need to know","discretionary access control", "role based", "rule-based","attribute based","mandatory access", "nondiscretionary access","hierarchial environment", "compartmentalized environment","hybrid environment"]
+    word2 = ["economy of mechanism", "open design", "fail safe defaults", "reluctance to trust", "trusted system", "assurance"]
     listofwordlists = [word,word1,word2]
-    wordlisttitles = ["Title1","Title2","Title3"]
-    os.remove('../grade.txt')
+    wordlisttitles = ["Employee Training","Access Control","Design Principles"]
     counterOfWords = 0
     CounterofZeroes = 0
     for line in newfile:
