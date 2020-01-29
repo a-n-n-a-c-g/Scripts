@@ -1,11 +1,8 @@
 import os
 from time import sleep
-#os.system('clear')
 class colored:
     WARNING = '\033[91m'    
     ENDC = '\033[0m'
-
-#newfile = open("../assignment.txt", "r") #not using filereader
 
 word = ["security awareness","security training", "security education"]
 word1 = ["lattice-based","permissions","rights","privileges","implicit deny", "access control matrix", "capability tables","content-dependent", "context-dependent","need to know","discretionary access control", "role based", "rule-based","attribute based","mandatory access", "nondiscretionary access","hierarchial environment", "compartmentalized environment","hybrid environment"]
@@ -56,10 +53,6 @@ def theentiredamnthing(newfile):
     os.system("cat ../grade.txt | clip.exe")
 
 def main():
-    #newfile = open("../assignment.txt","r")
-    #for line in newfile:
-        #theentiredamnthing(line)
-    #newfile.close()
     print "please use filereader.py, not this directly."
 
 if __name__ == "__main__":

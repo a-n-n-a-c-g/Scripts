@@ -28,20 +28,13 @@ def printtext(file):
     assignmentfile.write(text)
     #print text
     return text
-    #sleep(1000) 
 
 def recurseit():
     directory = "../Essays"
     for filename in os.listdir(directory):
         print (colored.WARNING + (filename) + colored.ENDC)
-        #if filename.endswith(".pdf") or filename.endswith(".docx"):
-            #printtext(os.path.join(directory,filename))
         theentiredamnthing(printtext(os.path.join(directory,filename)))
-            #printtext(os.path.join(directory,filename))
-            #theentiredamnthing()
         raw_input("Copied to Clipboard. Press return to continue. \n\n")
-        #else:
-            #continue
 
 def main():
     recurseit()
