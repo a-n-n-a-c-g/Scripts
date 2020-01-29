@@ -50,10 +50,10 @@ def theentiredamnthing():
         while "0" in currentlist: currentlist.remove("0")
         print(currentlist)
         gradingfile = open('../grade.txt','a')
-        gradingfile.write("You missed the following required words in " + str(wordlisttitles[entry]) + ":\n")
-        gradingfile.write(str(currentlist)+"\n")
-        gradingfile.write("You got " + str(numberofZeroes) + " words out of " + str(totalwords) + " in this topic")
-        gradingfile.write("\n\n")
+        if (len(currentlist) != 0):
+            gradingfile.write("You got "+ str(numberofZeroes) + " / " + str(totalwords) + " words in " + str(wordlisttitles[entry])  +  " and missed the following required words:\n" + (str(currentlist)+"\n\n"))
+        else:
+            gradingfile.write("You got all  words in " + str(wordlisttitles[entry]) +  "!\n\n")
         gradingfile.close()
     os.system("cat ../grade.txt | clip.exe")
 
