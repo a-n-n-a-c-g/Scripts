@@ -4,12 +4,13 @@ class colored:
     WARNING = '\033[91m'    
     ENDC = '\033[0m'
 
-word = ["security awareness","security training", "security education"]
-word1 = ["lattice-based","permissions","rights","privileges","implicit deny", "access control matrix", "capability tables","content-dependent", "context-dependent","need to know","discretionary access control", "role based", "rule-based","attribute based","mandatory access", "nondiscretionary access","hierarchial environment", "compartmentalized environment","hybrid environment"]
-word2 = ["economy of mechanism", "open design", "fail safe defaults", "reluctance to trust", "trusted system", "assurance"]
-
 def theentiredamnthing(newfile):
     #print newfile
+    
+    word = ["awareness","training", "education"]
+    word1 = ["lattice","permissions","rights","privileges","implicit deny", "access control matrix", "capability tables","content", "context","need to know","discretionary access control", "role based", "rule","attribute based","mandatory access", "nondiscretionary access","hierarchical environment", "compartmentalized environment","hybrid environment"]
+    word2 = ["economy of mechanism", "open design", "fail safe defaults", "reluctance to trust", "trusted system", "assurance"]
+
     listofwordlists = [word,word1,word2]
     wordlisttitles = ["Employee Training","Access Control","Design Principles"]
     counterOfWords = 0
