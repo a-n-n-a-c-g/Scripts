@@ -1,3 +1,7 @@
+if (($($(bcdedit | select-string hypervisorlaunchtype) -split '\s+')[1]) -eq "Off") {
+    Write-Host "This will enable Hyper-V"
+}
+else { Write-Host "This will disable Hyper-V" }
 $confirmation = Read-Host "Is everything saved/closed?"
 if ($confirmation -eq 'y') {
     if (($($(bcdedit | select-string hypervisorlaunchtype) -split '\s+')[1]) -eq "Off") {
