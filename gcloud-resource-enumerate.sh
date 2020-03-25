@@ -1,5 +1,11 @@
 #! /bin/bash
 
+# https://googleapis.dev/python/cloudresourcemanager/latest/index.html
+# https://cloud.google.com/resource-manager/reference/rest/v1/projects/list
+# https://medium.com/google-cloud/using-gcloud-and-python-client-library-with-google-compute-engine-eaf1b19d8099
+# https://cloud.google.com/resource-manager/docs/listing-all-resources
+# https://cloud.google.com/sdk/gcloud/reference/projects/list
+
 gcloud projects list --format 'value(project_id)' --sort-by=project_id > projects.txt
 
 current_dir=`pwd`
