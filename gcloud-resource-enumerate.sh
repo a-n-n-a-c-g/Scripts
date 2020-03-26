@@ -3,6 +3,9 @@
 check_for_errors () {
     if [[ $1 ]]; then
         echo $2: $1
+        if [[ $3 ]]; then
+            echo $4: $3
+        fi
     else
         echo "$2: none"
     fi
@@ -21,13 +24,10 @@ do
     func_project=`yes N | gcloud compute instances list --format 'value(name)' --project $line --quiet --verbosity="none"`
     check_for_errors "$func_project" "functions"
 
-    #look for app instances
+    #look for app instances and firewalls
     app_project=`yes N | gcloud app describe --format 'value(name)' --project $line --quiet --verbosity="none"`
-    check_for_errors "$app_project" "apps"
-
-    #look for app firewalls
     app_firewall=`gcloud app firewall-rules list --project $line --format="text" --quiet --verbosity="none"`
-    check_for_errors "$app_firewall" "app firewall rules"
+    check_for_errors "$app_project" "apps" "$app_firewall" "app firewall rules"
 
     #look for compute instances
     compute_insts_project=`yes N | gcloud compute instances list --format 'value(name)' --project $line --quiet --verbosity="none"`
