@@ -25,6 +25,10 @@ project_counter=1
 while IFS= read -r line
 #line="weave-secops"
 do
+    
+if [[ `gcloud alpha billing projects describe $line --format 'value(billingEnabled)'` = True ]]; then
+    #echo True Billing
+
     >&2 echo -e "\nProcessing $line: Project $project_counter out of $project_number" 
     ((project_counter=project_counter+1))
     echo -e {\"project\":{
@@ -77,4 +81,12 @@ do
     echo \"scan date\":\"$(date)\"
     echo }}
 >&2 echo "$line done"
+
+
+else
+    >&2 echo -e "\nNo billing setup; skipping project $project_counter ($line)."
+    ((project_counter=project_counter+1))
+fi
+
+
 done <"$projects"
