@@ -33,14 +33,20 @@
 - Direct diagnostic tool for PC info: ```dxdiag```
 
 ## Powershell
-#### Firewall/Network
+### Firewall/Network
 - ```new-netfirewallrule -DisplayName "Testing TCP/80" -Direction Inbound -LocalPort 80 -Protocol TCP -Action Allow ```
 - ```remove-netfirewallrule -DisplayName "Testing TCP/80"```
 - ```route add 192.168.0.0 MASK 255.255.0.0 192.168.230.1 METRIC 5```
 - ```route delete 192.168.0.0 MASK 255.255.0.0 192.168.230.1 METRIC 5 ```
 
-#### Scheduled tasks
+### Scheduled tasks
 - ```schtasks /create /tn myTask /tr "powershell -NoLogo -WindowStyle Hidden -file myScript.ps1" /sc minute /mo 1 /ru System ```
+### Uninstall updates
+- ```Get-Hotfix |where -Property InstalledOn -gt (get-date -date 01-01-2017)|%{ $sUpdate=$_.HotFixID.Replace("KB",""); write-host ("Uninstalling update "+$sUpdate); & wusa.exe /uninstall /KB:$sUpdate /quiet /norestart; Wait-Process wusa; Start-Sleep -s 1 }```
+- C:Windows/servicing/Packages...edit mum files to force remove updates
+  - ```$mumFiles = Get-ChildItem . *.mum -rec```
+  -```foreach ($file in mumFiles){(Get-Content $file.PSPath) | Foreach-Object { $_ -replace "permanent", "removable"} | Set-Content $file.PSPath}```
+
 
 ## Python
 ### Server
