@@ -13,6 +13,8 @@
 #### Scheduled tasks
 - ```schtasks /create /tn myTask /tr "powershell -NoLogo -WindowStyle Hidden -file myScript.ps1" /sc minute /mo 1 /ru System ```
 ## Cmd
+- Direct diagnostic tool for PC info: ```dxdiag```
+
 ## Python
 ### Server
 - ```python -m SimpleHTTPServer 8000```
