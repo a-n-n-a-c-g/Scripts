@@ -31,8 +31,12 @@
 
 ## Cmd
 - Direct diagnostic tool for PC info: ```dxdiag```
+- Escalate privileges: ```powershell "start-process powershell -verb runas"```
 
 ## Powershell
+### Escalate Privileges
+- ```start-process powershell –verb runAs```
+
 ### Firewall/Network
 - ```new-netfirewallrule -DisplayName "Testing TCP/80" -Direction Inbound -LocalPort 80 -Protocol TCP -Action Allow ```
 - ```remove-netfirewallrule -DisplayName "Testing TCP/80"```
