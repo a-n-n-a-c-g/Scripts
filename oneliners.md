@@ -29,9 +29,16 @@
 ### Scheduled tasks
 - List crontabs for every user: ```for user in $(getent passwd | cut -f1 -d: ); do echo $user; crontab -u $user -l; done```
 
-## Cmd
-- Direct diagnostic tool for PC info: ```dxdiag```
-- Escalate privileges: ```powershell "start-process powershell -verb runas"```
+## Windows cmd
+### Escalate privileges: 
+- ```powershell "start-process powershell -verb runas"```
+
+### Firewall/Network
+- Local Group Policy Editor, ``` Turn off Windows Defender Antivirus```
+
+### PC info: 
+- ```dxdiag```
+
 
 ## Powershell
 ### Escalate Privileges
