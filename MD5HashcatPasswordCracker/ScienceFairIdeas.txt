@@ -1,0 +1,12 @@
+weather station
+smart mirror
+bluetooth sniffer
+https://learn.adafruit.com/reverse-engineering-a-bluetooth-low-energy-light-bulb/overview
+water temperature/purity monitor
+Tor anonymyzer: https://lifehacker.com/how-to-anonymize-your-browsing-with-a-tor-powered-raspb-1793869805,
+	https://magpi.raspberrypi.org/articles/tor-router
+Password cracking ... speed on pi vs on laptop vs on desktop vs on lab stuff? John the ripper
+RFID cloner:   
+Control internet: https://medium.com/@cgrinaldi/customizing-the-internet-with-a-raspberry-pi-pi-hole-and-privoxy-f837ab19fedc
+ 
+https://www.reddit.com/r/raspberry_pi/comments/52suki/i_want_to_do_a_raspberry_pibased_science_fair/
