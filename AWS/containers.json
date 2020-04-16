@@ -1,0 +1,9 @@
+[
+  {
+    "Description": "PA OVA",
+    "Format": "ova",
+    "UserBucket": {
+        "S3Bucket": "bucketname",
+        "S3Key": "image name"
+    }
+}]

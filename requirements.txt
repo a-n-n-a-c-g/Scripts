@@ -1,7 +1,0 @@
-certifi==2019.11.28
-docxpy==0.8.5
-pdfminer.six==20191110
-pycryptodome==3.9.4
-six==1.14.0
-sortedcontainers==2.1.0
-wincertstore==0.2
