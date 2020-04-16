@@ -1,4 +1,5 @@
 # AWS HELPFUL ONE-LINERS
+Note: These commands reference json files which can be found in the AWS folder in this repo.
 - ```aws iam create-role --role-name vmimport --asume-role-policy -document file://Code/trust-policy.json```
 - ```aws iam put-role-policy --role-name vmimport --policy-name vmimport --policy-document file://Code/role-policy.json```
 - ```aws ec2 import-image --description "Gotham" --license-type BYOL --disk-containers file://Code/containers.json```
