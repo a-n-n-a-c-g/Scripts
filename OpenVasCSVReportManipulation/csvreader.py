@@ -1,4 +1,3 @@
-#TODO: sort by details and combine IPs with same details?
 import csv
 import sys, getopt
 import os
