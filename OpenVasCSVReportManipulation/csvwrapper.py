@@ -7,7 +7,7 @@ import os
 from csvreader import parse_file
 
 def create_arg_parser():
-    parser = argparse.ArgumentParser(description='Description of your app.')
+    parser = argparse.ArgumentParser(description='These scripts parse OpenVas CSV scan results')
     parser.add_argument('inputDirectory',
                     help='Path to the input directory.')
     parser.add_argument('-o',
