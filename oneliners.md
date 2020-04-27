@@ -12,6 +12,7 @@ Note: These commands reference json files which can be found in the AWS folder i
 
 ## Network
 - For when you don't have internet but someone else does (https://github.com/txthinking/brook): ```./brook client -l 127.0.0.1:8080 -i 127.0.0.1 -s <box with internet IP>:8080 -p password --http```
+- SCP with public key: ```scp -i <path to key> -r username@remoteIP:pathToFile <path to where you want to save>```
 
 ## Process Manipulation
 - ```systemctl list-unit-files | grep enabled```
