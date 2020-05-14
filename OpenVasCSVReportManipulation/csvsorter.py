@@ -1,7 +1,7 @@
 import csv
 from csvreader import writefile
 
-def readfile(inputfile):
+def readfiletosort(inputfile):
     with open(inputfile) as f:
         headers=next(f)
         reader=csv.reader(f,delimiter=",")
@@ -20,7 +20,7 @@ def readfile(inputfile):
             dates.append(row[5]) #see 4
             details.append(detail)
         
-        sort_file(hosts,severitys, details, reporters,teams,dates)
+        return(sort_file(hosts,severitys, details, reporters,teams,dates))
         
 def sort_file(hosts,severitys,details,reporters,teams,dates):
     sortedlist=[]
@@ -54,7 +54,7 @@ def sort_file(hosts,severitys,details,reporters,teams,dates):
         
         sortedlist.append(testcrap)
     #print(sortedlist)
-    writefile("out.csv",sortedlist)
+    return(sortedlist)
 
 if __name__ == "__main__":
-   readfile("outfile.csv")
+   writefile("out.csv",readfiletosort("outfile.csv"))
