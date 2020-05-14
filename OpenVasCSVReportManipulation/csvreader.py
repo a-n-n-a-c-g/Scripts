@@ -10,6 +10,7 @@ def getinputs():
 
 def readfile(inputfile):
     datalist=[]
+    sortedlist=[]
     inputs = getinputs()
     with open(inputfile) as f:
         headers = next(f) #skip headers
@@ -32,7 +33,8 @@ def readfile(inputfile):
             else:
                 host=(ipaddr)
         
-            details=(summary+" "+specresult+" "+impact+" "+vulninsight)
+            #details=(summary+" "+specresult+" "+impact+" "+vulninsight) #specresult messes up sorting
+            details=(summary+" "+impact+" "+vulninsight)
             details=details.replace('\n',' ') 
             details=details.replace('  ',' ')
 
