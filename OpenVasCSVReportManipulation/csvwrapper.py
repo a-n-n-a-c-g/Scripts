@@ -4,7 +4,8 @@ import fnmatch
 import argparse
 import sys
 import os
-from csvreader import parse_file
+from csvreader import parse_file, writefile
+from csvsorter import readfiletosort
 
 def create_arg_parser():
     parser = argparse.ArgumentParser(description='These scripts parse OpenVas CSV scan results')
@@ -49,6 +50,17 @@ def directorywasinput(inputfile,outputfile):
             inputfile=(os.path.join(root,filename))
             filewasinput(inputfile, outputfile)
 
+def sort(outputfile):
+    sort = input("Do you want to sort these results by vulnerability? (y|n): ")
+    if(sort=="y"):
+        sortedfile="sorted-"+outputfile
+        print("Results will be sorted and printed to "+sortedfile)
+        writefile(sortedfile,(readfiletosort(outputfile)))
+    elif(sort=="n"):
+        print("Results will not be sorted.")
+    else:
+        print("Sorry, did not understand input. Results will not be sorted.")
+
 def main():
     arg_parser = create_arg_parser()
     parsed_args = arg_parser.parse_args(sys.argv[1:])
@@ -56,6 +68,7 @@ def main():
     enteredoutputfile = parsed_args.o
     outputfile=(checkoutputfile(enteredoutputfile)) #check if outfile exists
     checkinputtype(inputfile,outputfile) #check if dir or file in inputfile
+    sort(outputfile) #sort results if desired
 
 if __name__ == "__main__":
         main()
