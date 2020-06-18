@@ -4,7 +4,7 @@ from queue import Queue
 import socket
 import threading
 
-target = "127.0.0.1"
+target = "192.168.1.254"
 queue = Queue()
 open_ports = []
 
