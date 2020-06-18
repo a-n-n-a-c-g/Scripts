@@ -1,53 +1,63 @@
-#!/usr/bin/env python
+# Multithreaded Port Scanner
+# by NeuralNine Copyright (c) 2019
+from queue import Queue
 import socket
-import subprocess
-import sys
-from datetime import datetime
+import threading
 
-# Clear the screen
-subprocess.call('clear', shell=True)
+target = "127.0.0.1"
+queue = Queue()
+open_ports = []
 
-# Ask for input
-remoteServer    = raw_input("Enter a remote host to scan: ")
-remoteServerIP  = socket.gethostbyname(remoteServer)
 
-# Print a nice banner with information on which host we are about to scan
-print "-" * 60
-print "Please wait, scanning remote host", remoteServerIP
-print "-" * 60
-
-# Check what time the scan started
-t1 = datetime.now()
-
-# Using the range function to specify ports (here it will scans all ports between 1 and 1024)
-
-# We also put in some error handling for catching errors
-
-try:
-    for port in range(1,1025):  
+def portscan(port):
+    try:
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        result = sock.connect_ex((remoteServerIP, port))
-        if result == 0:
-            print "Port {}: 	 Open".format(port)
-        sock.close()
+        sock.connect((target, port))
+        return True
+    except:
+        return False
 
-except KeyboardInterrupt:
-    print "You pressed Ctrl+C"
-    sys.exit()
+def get_ports(mode):
+    if mode == 1:
+        for port in range(1, 1024):
+            queue.put(port)
+    elif mode == 2:
+        for port in range(1, 49152):
+            queue.put(port)
+    elif mode == 3:
+        ports = [20, 21, 22, 23, 25, 53, 80, 110, 443]
+        for port in ports:
+            queue.put(port)
+    elif mode == 4:
+        ports = input("Enter your ports (seperate by blank):")
+        ports = ports.split()
+        ports = list(map(int, ports))
+        for port in ports:
+            queue.put(port)
 
-except socket.gaierror:
-    print 'Hostname could not be resolved. Exiting'
-    sys.exit()
+def worker():
+    while not queue.empty():
+        port = queue.get()
+        if portscan(port):
+            print("Port {} is open!".format(port))
+            open_ports.append(port)
 
-except socket.error:
-    print "Couldn't connect to server"
-    sys.exit()
+def run_scanner(threads, mode):
 
-# Checking the time again
-t2 = datetime.now()
+    get_ports(mode)
 
-# Calculates the difference of time, to see how long it took to run the script
-total =  t2 - t1
+    thread_list = []
 
-# Printing the information to screen
-print 'Scanning Completed in: ', total
+    for t in range(threads):
+        thread = threading.Thread(target=worker)
+        thread_list.append(thread)
+
+    for thread in thread_list:
+        thread.start()
+
+    for thread in thread_list:
+        thread.join()
+
+    print("Open ports are:", open_ports)
+
+run_scanner(100, 1)
