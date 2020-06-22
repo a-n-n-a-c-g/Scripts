@@ -13,6 +13,7 @@ Note: These commands reference json files which can be found in the AWS folder i
 ## Network
 - For when you don't have internet but someone else does (https://github.com/txthinking/brook): ```./brook client -l 127.0.0.1:8080 -i 127.0.0.1 -s <box with internet IP>:8080 -p password --http```
 - SCP with public key: ```scp -i <path to key> -r username@remoteIP:pathToFile <path to where you want to save>```
+- Quick ssh start: ```systemctl start ssh.socket```
 
 ## Process Manipulation
 - ```systemctl list-unit-files | grep enabled```
@@ -48,6 +49,7 @@ Note: These commands reference json files which can be found in the AWS folder i
 - ```remove-netfirewallrule -DisplayName "Testing TCP/80"```
 - ```route add 192.168.0.0 MASK 255.255.0.0 192.168.230.1 METRIC 5```
 - ```route delete 192.168.0.0 MASK 255.255.0.0 192.168.230.1 METRIC 5 ```
+- ```scp <file> user@<VM's IP>:/where/to/save
 
 ## Scheduled tasks
 - ```schtasks /create /tn myTask /tr "powershell -NoLogo -WindowStyle Hidden -file myScript.ps1" /sc minute /mo 1 /ru System ```
