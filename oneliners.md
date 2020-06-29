@@ -64,3 +64,4 @@ Note: These commands reference json files which can be found in the AWS folder i
 ## Server
 - ```python -m SimpleHTTPServer 8000```
 - ```python3 -m http.server```
+- Takes care of little endian for you and will actually send in DEADBEEF: ```pack("<L", 0xDEADBEEF)```
