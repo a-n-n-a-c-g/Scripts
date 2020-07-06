@@ -30,6 +30,9 @@ Note: These commands reference json files which can be found in the AWS folder i
 ## Scheduled tasks
 - List crontabs for every user: ```for user in $(getent passwd | cut -f1 -d: ); do echo $user; crontab -u $user -l; done```
 
+## Spawn a Shell
+- ```echo os.system('/bin/bash')``` (https://netsec.ws/?p=337)
+
 # WINDOWS CMD HELPFUL ONE-LINERS
 ## Escalate privileges: 
 - ```powershell "start-process powershell -verb runas"```
@@ -65,3 +68,4 @@ Note: These commands reference json files which can be found in the AWS folder i
 - ```python -m SimpleHTTPServer 8000```
 - ```python3 -m http.server```
 - Takes care of little endian for you and will actually send in DEADBEEF: ```pack("<L", 0xDEADBEEF)```
+- Spawn a shell: ```python -c 'import pty; pty.spawn("/bin/sh")'``` (https://netsec.ws/?p=337)
