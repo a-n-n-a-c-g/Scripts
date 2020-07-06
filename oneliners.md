@@ -64,8 +64,9 @@ Note: These commands reference json files which can be found in the AWS folder i
 
 
 # PYTHON HELPFUL ONE-LINERS
+- Takes care of little endian for you and will actually send in DEADBEEF: ```pack("<L", 0xDEADBEEF)```
+- Spawn a shell: ```python -c 'import pty; pty.spawn("/bin/sh")'``` (https://netsec.ws/?p=337)
 ## Server
 - ```python -m SimpleHTTPServer 8000```
 - ```python3 -m http.server```
-- Takes care of little endian for you and will actually send in DEADBEEF: ```pack("<L", 0xDEADBEEF)```
-- Spawn a shell: ```python -c 'import pty; pty.spawn("/bin/sh")'``` (https://netsec.ws/?p=337)
+
