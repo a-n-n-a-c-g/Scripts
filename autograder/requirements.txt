@@ -1,4 +1,4 @@
-certifi==2019.11.28
+certifi==2022.12.7
 docxpy==0.8.5
 pdfminer.six==20191110
 pycryptodome==3.9.4
